@@ -10,11 +10,20 @@ namespace Ejercicio_1
     {
         static void Main(string[] args)
         {
+            //Aqui matri1 cuadrado perfecto
+            Console.WriteLine("MATRIZ 1 ");
+            Console.WriteLine();
+            matriz1();
+            Console.WriteLine();
+            Console.WriteLine("MATRIZ 2 ");
+            Console.WriteLine();
+            matriz2();
+        }
+        static void matriz1() {
             int Y = 0, X = 0;
             Console.Write("MATRIZ X: ");
             X = int.Parse(Console.ReadLine());
             int[] Vector = new int[X];
-
             Console.Write("MATRIZ Y: ");
             Y = int.Parse(Console.ReadLine());
             int[] Vector2 = new int[Y];
@@ -42,19 +51,26 @@ namespace Ejercicio_1
                         {
                             Console.Write("0");
                         }
-
-
                     }
                     Console.Write("1");
                     Console.WriteLine("");
                 }
-
-
             }
+            Console.WriteLine();
+        }
+
+        static void matriz2()
+        {
+            
+            Console.Write("Ingrese X: ");
+            Console.Write("Ingrese Y: ");
+
+
+
 
             Console.ReadKey();
-        }
+        }    
         
-       
+        
     }
 }
