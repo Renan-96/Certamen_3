@@ -19,23 +19,36 @@ namespace Ejercicio_1
             Y = int.Parse(Console.ReadLine());         
             int[] Vector2 = new int[Y];
 
-            for (int i = 0; i < Vector.Length; i++)
-            {           
-                Console.Write("1");
-                for (int j = 0; j < Vector2.Length; j++)
+            for (int i = 1; i <=Vector.Length; i++)//Y
+            {
+                if (i==Vector.Length)
                 {
-                    if (i==0||i>Vector.Length)
+                    for (int k =0; k < Vector.Length; k++)
                     {
                         Console.Write("1");
-                    }                                   
-                    else
-                    {
-                        Console.Write("0");
                     }
-                    
-
                 }
-                Console.WriteLine("");
+                else
+                {
+                    Console.Write("1");
+                    for (int j = 2; j < Vector2.Length; j++)//X
+                    {
+
+                        if (i == 1)
+                        {
+                            Console.Write("1");
+                        }
+                        else
+                        {
+                            Console.Write("0");
+                        }
+
+
+                    }
+                    Console.Write("1");
+                    Console.WriteLine("");
+                }
+                
                 
             }
             Console.ReadKey();
