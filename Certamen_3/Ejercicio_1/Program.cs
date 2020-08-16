@@ -10,20 +10,20 @@ namespace Ejercicio_1
     {
         static void Main(string[] args)
         {
-            int Y=0,X=0;
+            int Y = 0, X = 0;
             Console.Write("MATRIZ X: ");
-            X=int.Parse(Console.ReadLine());
+            X = int.Parse(Console.ReadLine());
             int[] Vector = new int[X];
 
             Console.Write("MATRIZ Y: ");
-            Y = int.Parse(Console.ReadLine());         
+            Y = int.Parse(Console.ReadLine());
             int[] Vector2 = new int[Y];
 
-            for (int i = 1; i <=Vector.Length; i++)//Y
+            for (int i = 1; i <= Vector.Length; i++)//Y
             {
-                if (i==Vector.Length)
+                if (i == Vector.Length)
                 {
-                    for (int k =0; k < Vector.Length; k++)
+                    for (int k = 0; k < Vector2.Length; k++)
                     {
                         Console.Write("1");
                     }
@@ -48,11 +48,13 @@ namespace Ejercicio_1
                     Console.Write("1");
                     Console.WriteLine("");
                 }
-                
-                
+
+
             }
+
             Console.ReadKey();
         }
+        
        
     }
 }
