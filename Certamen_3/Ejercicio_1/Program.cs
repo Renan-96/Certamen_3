@@ -27,11 +27,7 @@ namespace Ejercicio_1
                     if (i==0||i>Vector.Length)
                     {
                         Console.Write("1");
-                    }
-                    else if (i)
-                    {
-                        Console.Write("1");
-                    }                    
+                    }                                   
                     else
                     {
                         Console.Write("0");
