@@ -220,7 +220,86 @@ namespace Ejercicio_1
 
         static void ejercicio_3()
         {
-            //Aqui va la parte de renan
+            string[,] usuario = new string[1000, 4];
+            int usuarios = 0;
+            bool flag = true;
+            int contadorf = 0;
+            int contadorm = 0;
+            int mayor = 0;
+            int menor = 0;
+
+
+            Console.WriteLine("Bienvenido");
+
+            Console.Write("Cuantos usuarios quiere crear: ");
+            usuarios = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < usuarios; i++)
+            {
+                Console.Write("Usuario {0} Ingrese su Nombre: ", i + 1);
+                usuario[i, 0] = Console.ReadLine();
+
+                Console.Write("Usuario {0} Ingrese su Apellido: ", i + 1);
+                usuario[i, 1] = Console.ReadLine();
+
+                while (flag)
+                {
+                    Console.WriteLine("M = Masculino, F = Femenino  ");
+                    Console.Write("Usuario {0} Ingrese su Sexo: ", i + 1);
+                    usuario[i, 2] = Console.ReadLine();
+
+                    if (usuario[i, 2] == "m" || usuario[i, 2] == "f" || usuario[i, 2] == "F" || usuario[i, 2] == "M")
+                    {
+                        flag = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Intente nuevamente solo se permite M o F");
+                    }
+                }
+                flag = true;
+
+                Console.Write("Usuario {0} Ingrese su Año de Nacimiento: ", i + 1);
+                usuario[i, 3] = Console.ReadLine();
+            }
+
+            for (int i = 0; i < usuarios; i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Usuario:{0} Nombre:{1} Apellido:{2} Sexo:{3} Año de Nacimiento:{4}", i + 1, usuario[i, 0], usuario[i, 1], usuario[i, 2], usuario[i, 3]);
+            }
+            for (int i = 0; i < usuarios; i++)
+            {
+                Console.WriteLine();
+
+                if (usuario[i, 2] == "f" || usuario[i, 2] == "F")
+                {
+                    contadorf++;
+                }
+                else
+                {
+                    contadorm++;
+                }
+            }
+            for (int i = 0; i < usuarios; i++)
+            {
+
+
+                if (int.Parse(usuario[i, 3]) <= 2002)
+                {
+                    mayor++;
+                }
+                else
+                {
+                    menor++;
+                }
+            }
+            Console.WriteLine("Los usuarios Femeninos ingresados son: " + contadorf);
+            Console.WriteLine("Los usuarios Masculinos ingresados son: " + contadorm);
+            Console.WriteLine();
+            Console.WriteLine("Los usuarios Mayores de edad ingresados son: " + mayor);
+            Console.WriteLine("Los usuarios Menores de edad ingresados son: " + menor);
+            Console.ReadKey();
         }
 
 
