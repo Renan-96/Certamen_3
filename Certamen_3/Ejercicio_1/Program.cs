@@ -10,30 +10,23 @@ namespace Ejercicio_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ejercicio1");
-            Console.WriteLine("MATRIZ 1 ");
-            matriz1();
+            Console.WriteLine("Ejercicio_1");
             Console.WriteLine();
-            Console.WriteLine("MATRIZ 2 ");
-            matriz2();
+            ejerciocio_1();
             Console.WriteLine();
-            Console.WriteLine("MATRIZ 3 ");
-            matriz3();
+            Console.WriteLine("Ejercicio_2");
             Console.WriteLine();
-            Console.WriteLine("MATRIZ 4 ");
-            matriz4();
-            Console.WriteLine("Ejercicio2");
             ejercicio_2();
+            Console.WriteLine();
+            Console.WriteLine("Ejerciocio_3");
+            Console.WriteLine();
+            ejercicio_3();
+            Console.ReadKey();
         }
 
-        static void matriz1()
-        {
-            int Y = 0, X = 0;
-            Console.Write("MATRIZ Y: ");
-            X = int.Parse(Console.ReadLine());
+        static void matriz1(int Y,int X)
+        {           
             int[] Vector = new int[X];
-            Console.Write("MATRIZ X: ");
-            Y = int.Parse(Console.ReadLine());
             int[] Vector2 = new int[Y];
             for (int i = 1; i <= Vector.Length; i++)//Y
             {
@@ -49,7 +42,6 @@ namespace Ejercicio_1
                     Console.Write("1");
                     for (int j = 2; j < Vector2.Length; j++)//X
                     {
-
                         if (i == 1)
                         {
                             Console.Write("1");
@@ -66,53 +58,40 @@ namespace Ejercicio_1
             Console.WriteLine();
         }
 
-        static void matriz2() {
-            int Y = 0, X = 0;
-            Console.Write("MATRIZ Y: ");
-            X = int.Parse(Console.ReadLine());
-            Console.Write("MATRIZ X: ");
-            Y = int.Parse(Console.ReadLine());
+        static void matriz2(int Y, int X) {
 
-
-            int[,] vec = new int[X, Y];
-            int cantidad = vec.GetLength(1) - 1;
-
-            for (int i = 0; i < vec.GetLength(0); i++)
+            int[,] num = new int[X, Y];
+            int veces = num.GetLength(1) - 1;
+            for (int i = 0; i < num.GetLength(0); i++)
             {
-                for (int j = 0; j < vec.GetLength(1); j++)
+                for (int j = 0; j < num.GetLength(1); j++)
                 {
                     if (i == j)
                     {
-                        vec[i, j] = 1;
+                        num[i, j] = 1;
                     }
                     else
                     {
-                        if (i == cantidad)
+                        if (i == veces)
                         {
-                            vec[i, j] = 1;
+                            num[i, j] = 1;
                         }
                         else
                         {
-                            vec[i, j] = 0;
+                            num[i, j] = 0;
                         }
                     }
-                    Console.Write(vec[i, j]);
-                    cantidad--;
+                    Console.Write(num[i, j]);
+                    veces=veces-1;
                 }
-                Console.WriteLine("");
-                cantidad = vec.GetLength(1) - 1;
+                Console.WriteLine();
+                veces = num.GetLength(1) - 1;
             }
-            Console.ReadKey();
         }
 
-        static void matriz3()
+        static void matriz3(int Y,int X)
         {
-            int Y = 0, X = 0;
-            Console.Write("MATRIZ Y: ");
-            X = int.Parse(Console.ReadLine());
             int[] Vector = new int[X];
-            Console.Write("MATRIZ X: ");
-            Y = int.Parse(Console.ReadLine());
             int[] Vector2 = new int[Y];
             for (int i = 1; i <= Vector.Length; i++)
             {
@@ -129,17 +108,11 @@ namespace Ejercicio_1
                 }
                 Console.WriteLine();
             }
-            Console.ReadKey();
         }
 
-        static void matriz4()
+        static void matriz4(int Y, int X)
         {
-            int Y = 0, X = 0;
-            Console.Write("MATRIZ Y: ");
-            X = int.Parse(Console.ReadLine());
             int[] Vector = new int[X];
-            Console.Write("MATRIZ X: ");
-            Y = int.Parse(Console.ReadLine());
             int[] Vector2 = new int[Y];
             for (int i = 1; i <= Vector.Length; i++)
             {
@@ -156,13 +129,72 @@ namespace Ejercicio_1
                 }
                 Console.WriteLine();
             }
-            Console.ReadKey();
+        }
+
+        static void ejerciocio_1()
+        {
+            int Y = 0, X = 0;
+
+            bool bucle = true;
+            bool bucle2 = true;
+            while (bucle2==true)
+            {
+                string NY;
+                try
+                {
+                    while (bucle == true)
+                    {
+                        try
+                        {
+                            Console.Write("MATRIZ Y: ");
+                            X = int.Parse(Console.ReadLine());
+                            int[] Vector = new int[X];
+                            Console.Write("MATRIZ X: ");
+                            Y = int.Parse(Console.ReadLine());
+                            int[] Vector2 = new int[Y];
+                            if (X > 0 && Y > 0)
+                            {
+                                bucle = false;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Error, Solo ingresar numeros enteros");
+
+                        }
+                    }
+                    matriz1(Y, X);
+                    Console.WriteLine();
+                    matriz2(Y, X);
+                    Console.WriteLine();
+                    matriz3(Y, X);
+                    Console.WriteLine();
+                    matriz4(Y, X);
+                    Console.WriteLine();
+
+                    Console.WriteLine("Quiere intentar otra matriz? No=N Si=S");
+                    NY = Console.ReadLine();
+                    if (NY=="N"||NY=="n")
+                    {
+                        bucle2 = false;
+                    }
+                    else if (NY=="S"||NY=="s")
+                    {
+                        Console.WriteLine("Ok");
+                        bucle = true;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Solo ingresar N o S"); 
+                }
+            }            
         }
 
         static void ejercicio_2()
         {
             int numM = 0;
-            Console.Write("Ingrese cantidad de numeros :");
+            Console.Write("Cuantos numeros quiere ingresar: ");
             numM = int.Parse(Console.ReadLine());
             int[] Vector = new int[numM];
             for (int i = 0; i < Vector.Length; i++)
@@ -184,11 +216,7 @@ namespace Ejercicio_1
             Console.ReadKey();
         }
 
-        static void salida(){
-
-
-
-        }
+       
 
         static void ejercicio_3()
         {
