@@ -12,7 +12,7 @@ namespace Ejercicio_1
         {
             Console.WriteLine("Ejercicio_1");
             Console.WriteLine();
-            ejerciocio_1();
+            //ejerciocio_1();
             Console.WriteLine();
             Console.WriteLine("Ejercicio_2");
             Console.WriteLine();
@@ -20,7 +20,7 @@ namespace Ejercicio_1
             Console.WriteLine();
             Console.WriteLine("Ejerciocio_3");
             Console.WriteLine();
-            ejercicio_3();
+            //ejercicio_3();
             Console.ReadKey();
         }
 
@@ -193,30 +193,47 @@ namespace Ejercicio_1
 
         static void ejercicio_2()
         {
-            int numM = 0;
+            int numM = 0,contador=0;
             Console.Write("Cuantos numeros quiere ingresar: ");
             numM = int.Parse(Console.ReadLine());
-            int[] Vector = new int[numM];
-            for (int i = 0; i < Vector.Length; i++)
+            int[] Vectornum = new int[numM];
+            for (int i = 0; i < Vectornum.Length; i++)
             {
                 Console.Write("Numero de la posicion {0}: ", (i + 1));
-                Vector[i] = int.Parse(Console.ReadLine());
+                Vectornum[i] = int.Parse(Console.ReadLine());
             }
-            for (int j = 0; j < Vector.Length; j++)
+            for (int i = 1; i < numM; i++)
             {
-                if (j == 0)
+                for (int j = 0; j < numM-1; j++)
                 {
-                    Console.WriteLine("El numero menor es: {0}", Vector[j]);
-                }
-                if (j == (Vector.Length - 1))
-                {
-                    Console.WriteLine("el numero mayor es: {0}", Vector[j]);
+                    if (Vectornum[i]<Vectornum[j])
+                    {
+                        contador = Vectornum[i];
+                        Vectornum[i] = Vectornum[j];
+                        Vectornum[j] = contador;
+                    }            
                 }
             }
+            int Maximo=0, Minimo=0;
+            Console.WriteLine("Numeros ordenados de menor a mayor");
+            for (int k = 0; k < numM; k++)
+            {
+                if (k==0)
+                {
+                    Minimo = Vectornum[k];
+                }
+                if (k==numM-1)
+                {
+                    Maximo = Vectornum[k];
+                }
+                Console.Write((k+1)+Vectornum[k]);
+                Console.Write(" ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Numero Menor: {0}",Minimo);
+            Console.WriteLine("Numero Mayor: {0}",Maximo);
             Console.ReadKey();
         }
-
-       
 
         static void ejercicio_3()
         {
@@ -301,7 +318,6 @@ namespace Ejercicio_1
             Console.WriteLine("Los usuarios Menores de edad ingresados son: " + menor);
             Console.ReadKey();
         }
-
 
     }
 }
